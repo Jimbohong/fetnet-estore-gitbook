@@ -1,6 +1,46 @@
+# FETNET ESTORE
+
+## Summary
+- [FETNET ESTORE](#fetnet-estore)
+  - [Summary](#summary)
+  - [壹、專案介紹](#壹專案介紹)
+    - [一、Estore 開發簡述](#一estore-開發簡述)
+    - [二、Git 位置及使用說明](#二git-位置及使用說明)
+        - [Git 位置](#git-位置)
+        - [下載步驟](#下載步驟)
+  - [貳、React 架構說明](#貳react-架構說明)
+  - [參、SASS 樣式設定](#參sass-樣式設定)
+    - [一、瀏覽器斷點](#一瀏覽器斷點)
+    - [二、基礎定義及修改](#二基礎定義及修改)
+    - [三、修改及區塊設定方式](#三修改及區塊設定方式)
+    - [四、使用樣式工具](#四使用樣式工具)
+  - [肆、切版開發說明](#肆切版開發說明)
+    - [一、HTML 大架構說明](#一html-大架構說明)
+    - [二、常用套件及共用工具](#二常用套件及共用工具)
+        - [Material-UI](#material-ui)
+        - [PropTypes](#proptypes)
+        - [ReactSlick](#reactslick)
+        - [FormsyReact](#formsyreact)
+        - [Paginate](#paginate)
+        - [ScrollMemory](#scrollmemory)
+        - [Utils](#utils)
+  - [伍、Router 及全域設定](#伍router-及全域設定)
+    - [一、App.js](#一appjs)
+    - [二、Loader.js](#二loaderjs)
+  - [陸、Redux 使用方式](#陸redux-使用方式)
+    - [一、State](#一state)
+    - [二、Reducer](#二reducer)
+    - [三、Action/action/index.js 設定從模組呼叫 redux 的函式。](#三actionactionindexjs-設定從模組呼叫-redux-的函式)
+    - [四、Componentonent 中帶入對應的 action 與 redux 函式。](#四componentonent-中帶入對應的-action-與-redux-函式)
+  - [柒、模組與流程](#柒模組與流程)
+    - [一、基本模組ments/button.md)](#一基本模組mentsbuttonmd)
+    - [二、表單模組](#二表單模組)
+    - [三、主要共用模組](#三主要共用模組)
+    - [四、頁面流程](#四頁面流程)
+
+---
 
 ## 壹、專案介紹
-
 
 ### 一、Estore 開發簡述
 
@@ -19,8 +59,6 @@
 
 ##### 下載步驟
 
-
-
 1. Git 由遠傳的 Roger 管理，在使用前需請 Roger 加入權限
 2. Git clone 專案到本機的專案資料夾
 3. 在 terminal 輸入  `cd /fentet-estore-ui ` 進入專案資料夾
@@ -28,6 +66,7 @@
 5. 執行 ` npm run start ` 進行開發與除錯
 6. 需打包時使用 ` npm run build ` 打包開發檔案，並將 build 資料夾內的內容上傳測試環境
 
+---
 
 ## 貳、React 架構說明
 
@@ -58,8 +97,6 @@
    </td>
   </tr>
 </table>
-
-
 
 <table>
   <tr>
@@ -136,7 +173,7 @@
   </tr>
 </table>
 
-
+---
 
 ## 參、SASS 樣式設定
 
@@ -215,7 +252,6 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
 
 ### 二、基礎定義及修改
 
-
 <table>
   <tr>
    <td colspan="2" ><strong>路徑</strong>
@@ -274,27 +310,36 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
    </td>
    <td>
    </td>
-   <td>man.sass 整合所有的樣式結構，可從檔案中看到  \
-<code>@import ./utils/variable \
-@import ./utils/retina-background \
- \
-@import ~slick-carousel/slick/slick.css \
-@import ~react-datepicker/dist/react-datepicker.css \
-// 基礎樣式的設定 \
-@import ./base/default \
-// 基本版面的設定 \
-@import ./layout/main \
-// 不同模組的主題 \
-@import ./module/main \
-// 不同狀態或頁面的設定 \
-@import ./state/default \
-@import ./state/farnet-page \
-@import ./state/rate-plan \
-@import ./state/exclusive \
-@import ./state/product \
-@import ./state/happy-go \
-// 不同主題的設定，目前沒用到   \
-@import ./theme/default</code>
+   <td>main.sass 整合所有的樣式結構，可從檔案中看到
+
+```scss
+@import ./utils/variable 
+@import ./utils/retina-background
+
+
+@import ~slick-carousel/slick/slick.css
+@import ~react-datepicker/dist/react-datepicker.css
+
+// 基礎樣式的設定
+@import ./base/default
+
+// 基本版面的設定
+@import ./layout/main
+
+// 不同模組的主題
+@import ./module/main
+
+// 不同狀態或頁面的設定
+@import ./state/default
+@import ./state/farnet-page
+@import ./state/rate-plan
+@import ./state/exclusive
+@import ./state/product
+@import ./state/happy-go
+
+// 不同主題的設定，目前沒用到  
+@import ./theme/default
+```
    </td>
   </tr>
 </table>
@@ -311,8 +356,6 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
 ### 四、使用樣式工具
 
 在 ` sass/base ` 中有對應的樣式名稱可參考，在切版時局部改變文字顏色、間距大小。並可根據大小網需求做 sm、md、lg、xl 的設定做出大小網不同的設定，以下列舉出常用項目，詳細使用方法可直接觀看 sass 檔案。 \
-
-
 
 <table>
   <tr>
@@ -411,17 +454,15 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
   </tr>
 </table>
 
-
-
 <table>
   <tr>
    <td colspan="3" ><strong>Display 顯示</strong>
    </td>
   </tr>
   <tr>
-   <td><strong>樣式名稱</strong>
+   <td width='300'><strong>樣式名稱</strong>
    </td>
-   <td colspan="2" ><strong>說明</strong>
+   <td><strong>說明</strong>
    </td>
   </tr>
   <tr>
@@ -429,11 +470,9 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
    </td>
    <td rowspan="7" colspan="2" >對應到 CSS 中 display 的設定，建議對 CSS 較熟悉的再使用，剛開始只要使用 inline、 inline-block、block、none 就可以了。
 <p>
-<strong>使用範例： \
-</strong> \
-<code><span class='d-none d-md-block'> \
-  小網隱藏、大網顯示 \
-</span></code>
+
+**使用範例：** 
+`<span class='d-none d-md-block'>小網隱藏、大網顯示</span>`
    </td>
   </tr>
   <tr>
@@ -461,8 +500,6 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
    </td>
   </tr>
 </table>
-
-
 
 <table>
   <tr>
@@ -519,11 +556,6 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
   </tr>
 </table>
 
-
- \
-
-
-
 <table>
   <tr>
    <td colspan="2" ><strong>間距</strong>
@@ -538,20 +570,19 @@ React 主要使用 Material-UI 的網格系統，參考其主要的瀏覽器尺�
   <tr>
    <td>m{dir}-{size}-{0-10}
    </td>
-   <td rowspan="6" ><strong>m：</strong>margin \
-<strong>p：</strong>padding \
+   <td rowspan="6" >
 
-<p>
-dir(方向) \
-<strong>t：</strong>上  |  <strong>b：</strong>下  |  <strong>l：</strong>左  |  <strong>r：</strong>右  |   \
-<strong>x：</strong>左右間距  |  <strong>y：</strong>上下間距 \
- \
-<strong>size：</strong>可參考<strong>瀏覽器斷點</strong>，在斷點以上的尺寸就會使用相關設定。 \
- \
-<strong>使用範例： \
-<code><span class='mt-5'>上方間距增加 40px</span> \
-<span class='py-0'>左右空間 0</span></code> \
-</strong>
+**m：** margin | **p：** padding 
+
+**dir(方向)**
+**t：** 上  |  **b：** 下  |  **l：** 左  |  **r：** 右  |  **x：** 左右間距  |  **y：** 上下間距 
+ 
+**size：** 可參考**瀏覽器斷點**，在斷點以上的尺寸就會使用相關設定。
+
+**使用範例：**
+`<span class='mt-5'>上方間距增加 40px</span>`
+`<span class='py-0'>左右空間 0</span>`
+
    </td>
   </tr>
   <tr>
@@ -569,37 +600,9 @@ dir(方向) \
 </table>
 
 
-**色表 \
-**
+**色表**
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-** \
-**
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
-
-
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
-
+![alt_text](images/colors.png "image_tooltip")
 
 
 <table>
@@ -625,62 +628,41 @@ dir(方向) \
   </tr>
 </table>
 
-
+---
 
 ## 肆、切版開發說明
-
-
-### 一、HTML 大架構說明 
-
+### 一、HTML 大架構說明
 HTML 架構大致如下：
-
+```html
 <html>
-
   <head>
-
     <!-- Meta / CSS / JS -->
-
   </head>
 
   <body>
-
     <!-- 共用 Header Start-->
-
     <header></header>
+    <!-- 共用 Header End-->
 
-    <!-- 共用 Header End →
-
-   <!-- 頁面：/src/pages 切版的部分，每個頁面所處理的區塊 -->
-
-    <main>
-
-      <!-- Partials：/src/components/partials ，以 section 為單位做區分 -->
-
-       <section>
-
-           <!-- Component：/src/components 以一筆完整的資料為單位做區隔，如：牌卡、下拉選單......等 -->
-
-           <Cards />
-
-       </section>
-
-    </main>
-
-   <!-- 頁面 -->
+    <!-- 頁面：/src/pages 切版的部分，每個頁面所處理的區塊 -->
+      <main>
+        <!-- Partials：/src/components/partials ，以 section 為單位做區分 -->
+          <section>
+              <!-- Component：/src/components 以一筆完整的資料為單位做區隔，如：牌卡、下拉選單......等 -->
+              <Cards />
+          </section>
+      </main>
+    <!-- 頁面 -->
 
     <!-- 共用 Footer  Start -->
-
     <footer></footer>
-
     <!-- 共用 Footer  End -->
 
   </body>
-
 </html>
-
+```
 
 ### 二、常用套件及共用工具
-
 為方便開發，使用一些文件較為齊全的 react 套件便於日後維護與擴充。
 
 
@@ -729,7 +711,6 @@ HTML 架構大致如下：
 
 共用、客製函式區。
 
-
 <table>
   <tr>
    <td><strong>檔案</strong>
@@ -740,38 +721,31 @@ HTML 架構大致如下：
   <tr>
    <td>validation.js
    </td>
-   <td>共同使用的表單驗證規則，引入需要的表單模組中。 \
- \
-isNumberValid：身分證字號驗證 \
-emailValid：Email 驗證 \
-mobileValid：手機驗證 \
- \
-<strong>使用範例：</strong> \
+   <td>
+   
+共同使用的表單驗證規則，引入需要的表單模組中。 
+
+- isNumberValid：身號驗證 
+- emailValid：Email 驗證 
+- mobileValid：手機驗證 
+
+**使用範例：**
+```jsx
 import * as Validation from '../../utils/validation';
-<p>
- \
+
 <LabelInput
-<p>
   name='id_number'
-<p>
   label='身分證字號'
-<p>
   validations={{
-<p>
     idNumberValid: <strong>Validation.idNumberValid</strong>,
-<p>
   }}
-<p>
   validationErrors={{
-<p>
      isDefaultRequiredValue: '請輸入身分證字號',
-<p>
      idNumberValid: '請輸入有效身分證字號！',
-<p>
   }}
-<p>
   placeholder='請輸入身分證字號' \
 />
+```
    </td>
   </tr>
   <tr>
@@ -800,14 +774,11 @@ import * as Validation from '../../utils/validation';
   </tr>
 </table>
 
-
+---
 
 ## 伍、Router 及全域設定
 
-
-### 一、App.js 
-
-
+### 一、App.js
 <table>
   <tr>
    <td><strong>行數</strong>
@@ -822,18 +793,14 @@ import * as Validation from '../../utils/validation';
    </td>
    <td>window.addEventListener('popstate')
    </td>
-   <td>React 回上一頁時無法觸發 API，於是設定回到上一頁時畫面重新讀取。 \
- \
-若是從結帳流程回到申辦流程則不會啟動重新讀取機制。
+   <td>
+   React 回上一頁時無法觸發 API，於是設定回到上一頁時畫面重新讀取。
+   若是從結帳流程回到申辦流程則不會啟動重新讀取機制。
    </td>
   </tr>
 </table>
 
-
-
-### 二、Loader.js 
-
-
+### 二、Loader.js
 <table>
   <tr>
    <td><strong>行數</strong>
@@ -848,13 +815,11 @@ import * as Validation from '../../utils/validation';
    </td>
    <td>useLayoutEffect
    </td>
-   <td>有時候 useEffect 會失效，故加上 useLayoutEffect 偵測畫面是否有更新。
-<p>
- \
+   <td>
+有時候 useEffect 會失效，故加上 useLayoutEffect 偵測畫面是否有更新。
+
 1. 判斷是否為申辦流程
-<p>
 2. 是，執行 gotoHash 根據 url hash 進入申辦流程對應的位置。
-<p>
 3. 否，執行 loadingAnimate 並判斷是否有 url hash，有則再執行 gotoHash。
    </td>
   </tr>
@@ -871,12 +836,10 @@ import * as Validation from '../../utils/validation';
    </td>
    <td>unlisten
    </td>
-   <td>偵測網址異動後執行判斷 \
- \
+   <td>偵測網址異動後執行判斷 
+
 1. 判斷是否為申辦流程
-<p>
 2. 是，執行 gotoHash 根據 url hash 進入申辦流程對應的位置。
-<p>
 3. 否，執行 loadingAnimate 並判斷是否有 url hash，有則再執行 gotoHash。
    </td>
   </tr>
@@ -914,27 +877,194 @@ import * as Validation from '../../utils/validation';
   </tr>
 </table>
 
-
+---
 
 ## 陸、Redux 使用方式
+Redux 的優點與基礎操作說明可參考[中文文件](https://chentsulin.github.io/redux/index.html)
+目前在 `src/App.js` 中已有預設載入 Redux，只需在 `/src/stores` 中加入對應的 action 與 state ，並引入模組中即可。
 
+### 一、State
+以購物車為例，在 `/src/stores/state.js` 新增 cartState 紀錄購物車資料。
+```jsx
+export const cartState = {
+  cart: null, // 購物車
+};
+```
+
+### 二、Reducer
+新增 `/src/stores/reducer/cart.js` 設定 cartReducer 處理購物車的新增、修改、刪除。
+```jsx
+import { TYPES } from '../action'; // 載入 actionType
+import { cartState } from '../state';
+
+export default function cartReducer(state = cartState, action) {
+  switch (action.type) {
+    case TYPES.UPDATE_CART_DATA:
+      return Object.assign({}, state, {
+        list: action.cart,
+      });
+
+    case TYPES.REMOVE_CART_DATA:
+      let removeList = null;
+      // console.log('cartReducer', state, action);
+      if (Array.isArray(state.list)) {
+        removeList = [...state.list];
+        removeList.splice(action.index, 1);
+      } else {
+        removeList = { ...state.list };
+        removeList[action.product].splice(action.index, 1);
+      }
+
+      return Object.assign({}, state, {
+        list: removeList,
+      });
+
+    case TYPES.SET_CART_DATA:
+      return Object.assign({}, state, {
+        list: action.cart,
+      });
+
+    default:
+      return state;
+  }
+}
+```
+
+### 三、Action/action/index.js 設定從模組呼叫 redux 的函式。
+```jsx
+//設定對應的 actionType 與 reducer 同步
+export const SET_CART_DATA = 'SET_CART_DATA';
+export const REMOVE_CART_DATA = 'REMOVE_CART_DATA';
+export const UPDATE_CART_DATA = 'UPDATE_CART_DATA';
+
+export const TYPES = {
+  SET_CART_DATA,
+  REMOVE_CART_DATA,
+  UPDATE_CART_DATA
+}
+
+// 根據刪除購物車所需要的參數與資料，個別帶入需要的參數。
+export function removeCartData(index, product) {
+  return {
+    type: REMOVE_CART_DATA,
+    index,
+    product,
+  };
+}
+// Actions
+export function updateCartData(index, cart) {
+  return {
+    type: UPDATE_CART_DATA,
+    index,
+    cart,
+  };
+}
+// Actions
+export function setCartData(cart) {
+  return {
+    type: SET_CART_DATA,
+    cart,
+  };
+}
+```
+
+### 四、Componentonent 中帶入對應的 action 與 redux 函式。
+```jsx
+import { setCartData } from '../../stores/action';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+```
+
+將需要引入的 state 與 action 傳入 props
+```jsx
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cartReducer,
+  };
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      setCartData,
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(YourComponenetName);
+```
+
+在對應的 method 中呼叫 redux action 將資料存入
+```jsx
+addToCart = () => {
+  this.props.setCartData(list);
+}
+```
+
+---
 
 ## 柒、模組與流程
 
+### 一、基本模組ments/button.md)
+- [Link](./elements/link.md)
+- [Item](./elements/item.md)
+- [LinkItem](./elements/linkitem.md)
+- [SocialMedia](./elements/socailmedia.md)
+- [Table](./elements/table.md)
 
-### 一、基本模組
+### 二、表單模組
+
+表單元件 HTML 結構，如果有客製化狀況，可依照下方表單結構自行變化 HTML 內容
+```html
+<div className='form-group'>
+  <label>欄位標題，可省略<label>
+  可直接放 
+  <LabelInput /> 等欄位內容或
+  <div>
+    用 div 包住客製的 HTML 元件，如 DatePicker
+  </div>
+</div>
+```
 
 
-### 一、表單模組
+**Fetnet 表單模組**
+- [Formsy](./form/formsy.md)
+- [Input](./form/input.md)
+- [Radio button](./form/radio-buton.md)
+- [Checkbox](./form/checkbox.md)
+- [Select](./form/select.md)
+- [Textarea](./form/Textarea.md)
+
+**Estore 表單模組**
+- [CheckboxCards](./form/checkbox-cards.md)
+可選擇商品的牌卡列表
+- [CheckboxCardCarousel](./form/checkbox-card-carousel.md)
+商品選擇輪播模組，用於申辦流程
+- [ColorSelector](./form/color-selector.md)
+用於產品頁選擇顏色
+- [DatePicker](./form/date-picker.md)
+日期選擇
+- [ImageUpload](./form/image-upload.md)
+圖片上傳
+- [NumberSelector](./form/number-selector.md)
+產品數量選擇器
+- [RadioCard](./form/radio-card.md)
+申辦流程的資費牌卡
+- [RadioCarousel](./form/radio-carousel.md)
+用於門號選擇
 
 
-### 一、牌卡模組
+### 三、主要共用模組
+- [EstoreBanner](./estore/estore-banner.md)
+Estore 的共用 Banner
+- [EstoreModal](./estore/estore-modal.md)
+Estore 為方便管理共用的跳窗
+- [CompareBar](./estore/compare-bar.md)
+資費比一比控制條與跳窗
+- [Cart](./estore/cart.md)
+一般商品購物車
+- [FlowCart](./estore/flow-cart.md)
+申辦流程購物車
 
-
-### 二、申報流程
-
-
-### 二、結帳流程
-
-
-## 捌、結語
+### 四、頁面流程
+- [申辦流程](estore/apply-flow.md)
